@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+// import logo from './logo.svg';
 import './App.css';
+import { setState } from 'expect/build/jestMatchersObject';
 
 function App() {
+  const [name, setName] = useState("Ahmed")
+  const [age, setAge] = useState(10)
+
+  const increment = () => {
+    setAge(age + 1)
+  }
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    console.log('use effect called');
+
+  }, [age]);
+
+  
+  // [] empty means component unmount
+  useEffect(() => {
+    return () => {
+      console.log('component unmounted');
+    }
+  }, []);
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <h1>React Hooks</h1>
+      <h2>{name}</h2>
+      <h2>{age}</h2>
+      <button onClick={() => setName("Kashaf")}>Change Name</button>
+      <button onClick={() => increment()}>Icrement age</button>
+    </div >
   );
 }
 
