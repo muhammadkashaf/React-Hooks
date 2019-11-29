@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { setState } from 'expect/build/jestMatchersObject';
 
 function App() {
   const [name, setName] = useState("Ahmed")
